@@ -13,9 +13,11 @@ const toggleMode = () => {
     setLight(!light);
     if (!light === true) {
         document.body.style.backgroundColor = "white";
+        return true;
     }
     else {
         document.body.style.backgroundColor = "#121212";
+        return false;
     }
 }
 
