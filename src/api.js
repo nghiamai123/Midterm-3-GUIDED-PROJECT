@@ -22,3 +22,14 @@ export const getUser = async (name) => {
     }
 };
 
+export const getUserRepos = async (name) => {
+    try {
+        const response = await axios.get(
+            `https://api.github.com/users/${name}/repos`
+        );
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching data:", error.message);
+    }
+};
+

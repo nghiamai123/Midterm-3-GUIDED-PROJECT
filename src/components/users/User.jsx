@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getUser } from "../../api";
-// import Repos from "../repos/Repos";
+import { getUserRepos } from "../../api.js";
+import Repos from "../repos/Repos";
 const User = () => {
 const { id } = useParams();
 const [user, setUser] = useState({});
@@ -17,16 +17,19 @@ const fetchData = async () => {
     }   
 };
 
-const getUserRepos = async (id) => {
-// To be completed ...
-// This is the small exercise for students
-// Students will write the code to fetch the user's repositories
-// Then display the repositories in the User component
+const featchDataRepos = async () => {
+    try {
+        const response = await getUserRepos(id);
+        setRepos(response);
+    }
+    catch (e) {
+        console.error("Error fetching data:", e.message);
+    }
 };
 
 useEffect(() => {
     fetchData();
-    getUserRepos(id);
+    featchDataRepos();
     }, []);
     const { name, avatar_url, location, bio, company, blog, login, html_url, followers, following, public_repos, public_gists, hireable, } = user;
 return (
@@ -63,7 +66,7 @@ return (
             <div className="badge badge-light">Repository: {public_repos}</div>
             <div className="badge badge-dark">Gist: {public_gists}</div>
         </div>
-        {/* <Repos repos={repos} /> */}
+        <Repos repos={repos} />
         </Fragment>
     );
 };
