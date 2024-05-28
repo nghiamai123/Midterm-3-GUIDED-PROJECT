@@ -14,9 +14,9 @@ const UserItem = (props) => {
 
         <h3>{login}</h3>
         <div>
-        <Link href="/" className="btn btn-dark btn-sm my-1">
-        More
-        </Link>
+        <a href="/" className="btn btn-dark btn-sm my-1">
+            More
+        </a>
         </div>
     </div>
     );
