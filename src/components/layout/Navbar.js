@@ -30,7 +30,7 @@ return (
             <li>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
-                <Button variant="contained" onClick={toggleMode}>{light === true ? <LightModeIcon /> : <DarkModeIcon />}</Button>
+                <Button style={light === true ? {color: "black", backgroundColor: "white"} : {color: "black", backgroundColor: "white"}} onClick={toggleMode}>{light === true ? <LightModeIcon /> : <DarkModeIcon />}</Button>
             </li>
         </ul>
     </nav>
