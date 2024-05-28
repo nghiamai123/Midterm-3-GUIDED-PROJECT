@@ -38,30 +38,30 @@ return (
         <div className="card grid-2">
             <div className="all-center">
                 <img src={avatar_url} alt={name} className="round-img" style={{ width: "150px" }} />
-                <h1>{name}</h1>
-                <p>{location}</p>
+                <h1 style={{color:"white"}}>{name}</h1>
+                <p style={{color:"white"}}>{location}</p>
             </div>
             <div>
-                {bio && ( <Fragment> <h3>Bio:</h3> <p>{bio}</p> </Fragment> )}
+                {bio && ( <Fragment> <h3 style={{color:"white"}}>Bio:</h3> <p>{bio}</p> </Fragment> )}
                 <a href={html_url} className="btn btn-dark my-1" target="_blank" rel="noopener noreferrer" > Show Github Profile </a>
                 <ul>
-                    <li>
+                    <li style={{color:"white"}}>
                         {login && ( <Fragment> <strong>Username: </strong> {login} </Fragment> )}
                     </li>
-                    <li> 
+                    <li style={{color:"white"}}> 
                         {company && ( <Fragment> <strong>Company: </strong> {company} </Fragment> )}
                     </li>
-                    <li> 
+                    <li style={{color:"white"}}> 
                         {blog && ( <Fragment> <strong>Website: </strong> <a href={blog} target="_blank" rel="noopener noreferrer"> {blog} </a> </Fragment> )}
                     </li>
                 </ul>
             </div>
         </div>
         <div className="card text-center">
-            <div className="badge badge-primary">Followers: {followers}</div>
-            <div className="badge badge-success">Following: {following}</div>
+            <div className="badge badge-primary" style={{color:"white"}}>Followers: {followers}</div>
+            <div className="badge badge-success" style={{color:"white"}}>Following: {following}</div>
             <div className="badge badge-light">Repository: {public_repos}</div>
-            <div className="badge badge-dark">Gist: {public_gists}</div>
+            <div className="badge badge-dark" style={{color:"white"}}>Gist: {public_gists}</div>
         </div>
         {/* <Repos repos={repos} /> */}
         </Fragment>

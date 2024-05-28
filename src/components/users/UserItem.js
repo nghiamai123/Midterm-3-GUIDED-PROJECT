@@ -12,7 +12,7 @@ const UserItem = (props) => {
         style={{ width: "60px" }}
         />
 
-        <h3>{login}</h3>
+        <h3 style={{color:"white"}}>{login}</h3>
         <div>
         <Link to={`/user/${login}`} className="btn btn-dark btn-sm my-1">
         More
