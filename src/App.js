@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Navbar from "./components/layout/Navbar";
 import Users from "./components/users/Users.js";
+import Search from "./components/users/Search.js";
 function App() {
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -19,11 +20,11 @@ function App() {
 
   return (
     <div className="App">
-    <Navbar />
-    <div className="container">
-      <h1>GitHub Users Data</h1>
-    </div>
-      <Users users={users} />
+      <Navbar />
+      <div className="container">
+        <h1>GitHub Users Data</h1>
+        <Search />
+      </div>
     </div>
   );
 }

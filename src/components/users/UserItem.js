@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "react-dom"
 const UserItem = (props) => {
     const { login, avatar_url, html_url } = props.user;
 
