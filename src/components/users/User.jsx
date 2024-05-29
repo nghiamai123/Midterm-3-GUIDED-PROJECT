@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useCallback, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getUser } from "../../api";
 import { getUserRepos } from "../../api.js";
@@ -8,30 +8,31 @@ const { id } = useParams();
 const [user, setUser] = useState({});
 const [repos, setRepos] = useState([]);
 
-const fetchData = async () => {
+const fetchData = useCallback(async () => {
     try {
         const response = await getUser(id);
         setUser(response);
     } catch (error) {
         console.error("Error fetching data:", error.message);
     }   
-};
+}, [id]);
 
-const featchDataRepos = async () => {
+const featchDataRepos = useCallback(async () => {
     try {
         const response = await getUserRepos(id);
         setRepos(response);
-    }
-    catch (e) {
+    } catch (e) {
         console.error("Error fetching data:", e.message);
     }
-};
+}, [id]);
 
 useEffect(() => {
     fetchData();
     featchDataRepos();
-    }, []);
-    const { name, avatar_url, location, bio, company, blog, login, html_url, followers, following, public_repos, public_gists, hireable, } = user;
+}, [fetchData, featchDataRepos]);
+
+const { name, avatar_url, location, bio, company, blog, login, html_url, followers, following, public_repos, public_gists, hireable, } = user;
+
 return (
     <Fragment>
         <Link to="/" className="btn btn-light">
